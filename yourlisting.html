@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Your Item - PreLoved Picks</title>
+    <link rel="stylesheet" href="yourlisting.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <header>
+        <header>
+            <div class="header-container">
+              <div class="logo-container">
+                <button class="menu-button">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 12H20M4 6H20M4 18H20" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </button>
+                <h1>Your Listing</h1>
+              </div>
+              <div class="search-container">
+                <div class="search-box">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="#666" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                  <input type="text" placeholder="Search" />
+                </div>
+              </div>
+              <div class="auth-container">
+                <a href="list.html"><button class="sell-button">Sell</button></a>
+                
+                <div class="user-profile">
+                  <button class="login-button">Log in</button>
+                  <div class="user-welcome hidden">
+                    <div class="user-avatar">
+                      <span class="avatar-initials"></span>
+                    </div>
+                    <div class="user-dropdown">
+                      <span class="username">User</span>
+                      <div class="dropdown-content">
+                        <a href="profile.html" class="profile-link">My Profile</a>
+                        <button class="logout-button">Log out</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </header>
+      
+    </header>
+    
+    <main>
+        <section class="listing-form">
+            <h2>Sell Your PreLoved Item</h2>
+            <form action="submit_listing.php" method="POST" enctype="multipart/form-data">
+                <label for="title">Item Title:</label>
+                <input type="text" id="title" name="title" required>
+                
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" required></textarea>
+                
+                <label for="price">Price ($):</label>
+                <input type="number" id="price" name="price" required>
+                
+                <label for="image">Upload Image:</label>
+                <input type="file" id="image" name="image" accept="image/*" required>
+                
+                <button type="submit">Submit Listing</button>
+            </form>
+        </section>
+        
+        <section class="featured-listings">
+            <h2>Featured Listings</h2>
+            <div class="listing-item">
+                <img src="vintage.jpg" alt="Sample Item">
+                <h3>Vintage Watch</h3>
+                <p>$50</p>
+            </div>
+        </section>
+    </main>
+    
+    <!-- <footer>
+        <p>&copy; 2025 PreLoved Picks. All rights reserved.</p>
+    </footer> -->
+</body>
+</html>

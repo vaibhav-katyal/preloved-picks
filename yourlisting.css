@@ -1,0 +1,277 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1rem;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Listing Form Styles */
+.listing-form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.listing-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.listing-form input[type="text"],
+.listing-form input[type="number"],
+.listing-form input[type="file"],
+.listing-form textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+.listing-form input[type="text"]:focus,
+.listing-form input[type="number"]:focus,
+.listing-form input[type="file"]:focus,
+.listing-form textarea:focus {
+    border-color: #ff6b00;
+    outline: none;
+}
+
+.listing-form button {
+    background-color: #ff6b00;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.listing-form button:hover {
+    background-color: #e05e00;
+}
+
+/* Featured Listings Styles */
+.featured-listings {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.listing-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.listing-item img {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.listing-item h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.listing-item p {
+    font-size: 1rem;
+    color: #ff6b00;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    nav a {
+        margin: 0 10px;
+        font-size: 0.9rem;
+    }
+
+    section h2 {
+        font-size: 1.3rem;
+    }
+
+    .listing-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .listing-item img {
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    nav a {
+        margin: 0 5px;
+        font-size: 0.8rem;
+    }
+
+    section h2 {
+        font-size: 1.2rem;
+    }
+}
+
+/* Header styles */
+header {
+    background-color: #1a1a1a;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+  }
+  
+  .logo-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .menu-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+    padding: 5px;
+  }
+  
+  h1 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #fff;
+  }
+  
+  h1 a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .search-container {
+    flex-grow: 1;
+    max-width: 400px;
+    margin: 0 20px;
+  }
+  
+  .search-box {
+    display: flex;
+    align-items: center;
+    background-color: #333;
+    border-radius: 20px;
+    padding: 8px 15px;
+  }
+  
+  .search-box svg {
+    margin-right: 10px;
+  }
+  
+  .search-box input {
+    background: none;
+    border: none;
+    color: #fff;
+    width: 100%;
+    outline: none;
+    font-size: 0.9rem;
+  }
+  
+  .search-box input::placeholder {
+    color: #888;
+  }
+  
+  .auth-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  .sell-button {
+    background-color: #ff6b00;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .sell-button:hover {
+    background-color: #e05e00;
+  }
+  
+  .login-button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .login-button:hover {
+    background-color: #444;
+  }
