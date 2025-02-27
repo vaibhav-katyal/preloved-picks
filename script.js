@@ -9,6 +9,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize auth functionality
     initializeAuth();
+
+    // Initialize cart functionality
+    initializeCart();
+
+    // Update cart count on page load
+    updateCartCount(getCart().length);
   });
   
   function initializeUI() {
@@ -284,3 +290,70 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
   });
+
+  function initializeCart() {
+    const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+    
+    addToCartButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const productId = this.dataset.id;
+        const productTitle = this.dataset.title;
+        const productPrice = parseFloat(this.dataset.price);
+        const productImage = this.dataset.image;
+        const productSeller = this.dataset.seller;
+        const productCondition = this.dataset.condition;
+        const productSize = this.dataset.size || 'N/A';
+        
+        const cartItem = {
+          id: productId,
+          title: productTitle,
+          price: productPrice,
+          image: productImage,
+          seller: productSeller,
+          condition: productCondition,
+          size: productSize,
+          quantity: 1
+        };
+        
+        addToCart(cartItem);
+        showNotification('Item added to cart');
+      });
+    });
+  }
+  
+  function addToCart(item) {
+    let cart = getCart();
+    const existingItemIndex = cart.findIndex(cartItem => cartItem.id === item.id);
+    
+    if (existingItemIndex !== -1) {
+      cart[existingItemIndex].quantity += 1;
+    } else {
+      cart.push(item);
+    }
+    
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCount(cart.length);
+  }
+  
+  function getCart() {
+    return JSON.parse(localStorage.getItem('cart')) || [];
+  }
+  
+  function updateCartCount(count) {
+    const cartCount = document.querySelector('.cart-count');
+    if (cartCount) {
+      cartCount.textContent = count;
+    }
+  }
+  
+  function showNotification(message) {
+    const notification = document.getElementById('successNotification');
+    const messageElement = notification.querySelector('.notification-message');
+    
+    messageElement.textContent = message;
+    notification.classList.add('show');
+    
+    setTimeout(() => {
+      notification.classList.remove('show');
+    }, 3000);
+  }
