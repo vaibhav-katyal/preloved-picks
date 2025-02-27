@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="list.css">
+    <title>PreLoved Picks</title>
+</head>
+<body>
+    <section id="main">
+    <h1>List an item</h1>
+    <form method="POST">
+    <h2>Photos</h2>
+    <p>Add up to 10 photos.The first photo will be the cover photo</p>
+    <div class="button-container">
+        <button class="upload-button" id="uploadButton" name="uploadbutton">Upload photos</button>
+        <button class="take-button" id="takePhotoButton" name="takePhotoButton">Take photos</button>
+      </div>
+    <h2>Title</h2>
+    <input type="text" name="title" id="title" placeholder="eg.Women,s Black jacket">
+    <h2>Category</h2>
+    <select >
+        <option value="none" selected disabled hidden>Category</option>
+        <option>shirts</option>
+        <option>jeans</option>
+        <option></option>
+
+    </select>
+    <h2>Brand(optional)</h2>
+    <input type="text" name="Brand" id="Brand" placeholder="Enter a brand name">
+    <h2>Size(optional)</h2>
+    <input type="text" name="size(opt)" id="size(opt)" placeholder="Enter a size">
+  
+    <div class="condition-container">
+      <h2>Condition</h2>
+      <label class="condition-item">
+          <input type="radio" name="condition" value="new" checked>
+          <span>New with tags</span>
+      </label>
+      <label class="condition-item">
+          <input type="radio" name="condition" value="like-new">
+          <span>Like new</span>
+      </label>
+      <label class="condition-item">
+          <input type="radio" name="condition" value="gently-used">
+          <span>Gently used</span>
+      </label>
+      <label class="condition-item">
+          <input type="radio" name="condition" value="well-worn">
+          <span>Well worn</span>
+      </label>
+  </div>
+
+      <div class="description-section">
+        <label for="description">Description</label>
+        <textarea id="description" name="description" placeholder="Tell us more about your item..."></textarea>
+      </div>
+     
+      
+      <h2>Price</h2>
+      <div class="price-section">
+          <input type="number" id="priceInput" name="price" placeholder="$0.00" step="0.01" min="0" required>
+          <select id="shippingOptions">
+              <option value="none" selected disabled hidden>Shipping</option>
+              <option value="free">Free Shipping</option>
+              <option value="standard">Standard Shipping</option>
+              <option value="express">Express Shipping</option>
+          </select>
+      </div>
+      <div id="end">
+        <button  name="cancel" id="cancel">cancel</button>
+        <button  name="listiten" id="listitem">List Item</button>
+      </div>
+
+      </form>
+      </section>
+    
+
+
+    </section>
+
+    <script src="list.js"></script>
+</body>
+</html>
