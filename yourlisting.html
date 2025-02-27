@@ -1,87 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>List Your Item - PreLoved Picks</title>
-    <link rel="stylesheet" href="yourlisting.css"> <!-- Link to your CSS file -->
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PreLoved Picks</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="cart.css" />
+  </head>
+  <body>
     <header>
-        <header>
-            <div class="header-container">
-              <div class="logo-container">
-                <button class="menu-button">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4 12H20M4 6H20M4 18H20" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                  </svg>
-                </button>
-                <h1>Your Listing</h1>
+      <div class="header-container">
+        <div class="logo-container">
+          <button class="menu-button">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 12H20M4 6H20M4 18H20" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <h1>Your listing</h1>
+        </div>
+        <div class="search-container">
+          <div class="search-box">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="#666" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <input type="text" placeholder="Search" />
+          </div>
+        </div>
+        <div class="auth-container">
+          <a href="list.html"><button class="sell-button">Sell</button></a>
+          
+
+          <a href="cart.html" class="cart-button">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 3H5L5.4 5M5.4 5H21L17 13H7M5.4 5L7 13M7 13L4.707 15.293C4.077 15.923 4.523 17 5.414 17H17M17 17C15.895 17 15 17.895 15 19C15 20.105 15.895 21 17 21C18.105 21 19 20.105 19 19C19 17.895 18.105 17 17 17ZM9 19C9 20.105 8.105 21 7 21C5.895 21 5 20.105 5 19C5 17.895 5.895 17 7 17C8.105 17 9 17.895 9 19Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="cart-count">0</span>
+          </a>
+          
+
+          <div class="user-profile">
+            <button class="login-button">Log in</button>
+            <div class="user-welcome hidden">
+              <div class="user-avatar">
+                <span class="avatar-initials"></span>
               </div>
-              <div class="search-container">
-                <div class="search-box">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="#666" stroke-width="2" stroke-linecap="round"/>
-                  </svg>
-                  <input type="text" placeholder="Search" />
-                </div>
-              </div>
-              <div class="auth-container">
-                <a href="list.html"><button class="sell-button">Sell</button></a>
-                
-                <div class="user-profile">
-                  <button class="login-button">Log in</button>
-                  <div class="user-welcome hidden">
-                    <div class="user-avatar">
-                      <span class="avatar-initials"></span>
-                    </div>
-                    <div class="user-dropdown">
-                      <span class="username">User</span>
-                      <div class="dropdown-content">
-                        <a href="profile.html" class="profile-link">My Profile</a>
-                        <button class="logout-button">Log out</button>
-                      </div>
-                    </div>
-                  </div>
+              <div class="user-dropdown">
+                <span class="username">User</span>
+                <div class="dropdown-content">
+                  <a href="profile.html" class="profile-link">My Profile</a>
+                  <button class="logout-button">Log out</button>
                 </div>
               </div>
             </div>
-          </header>
-      
+          </div>
+        </div>
+      </div>
     </header>
+
     
-    <main>
-        <section class="listing-form">
-            <h2>Sell Your PreLoved Item</h2>
-            <form action="submit_listing.php" method="POST" enctype="multipart/form-data">
-                <label for="title">Item Title:</label>
-                <input type="text" id="title" name="title" required>
-                
-                <label for="description">Description:</label>
-                <textarea id="description" name="description" required></textarea>
-                
-                <label for="price">Price ($):</label>
-                <input type="number" id="price" name="price" required>
-                
-                <label for="image">Upload Image:</label>
-                <input type="file" id="image" name="image" accept="image/*" required>
-                
-                <button type="submit">Submit Listing</button>
-            </form>
-        </section>
-        
-        <section class="featured-listings">
-            <h2>Featured Listings</h2>
-            <div class="listing-item">
-                <img src="vintage.jpg" alt="Sample Item">
-                <h3>Vintage Watch</h3>
-                <p>$50</p>
+      
+
+      <section class="trending">
+        <h2>Your Listings</h2>
+        <div class="trending-grid">
+          <div class="product-card" data-id="product1">
+            <img src="https://images.unsplash.com/photo-1621996659490-3275b4d0d951?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Birkenstocks" />
+            <div class="product-info">
+              <h3>Birkenstocks</h3>
+              <p>12,000+ listings</p>
+              <button class="add-to-cart-btn" data-id="product1" data-title="Birkenstocks" data-price="65.99" data-image="https://images.unsplash.com/photo-1621996659490-3275b4d0d951?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" data-seller="JaneStyle" data-condition="Excellent">Add to Cart</button>
             </div>
-        </section>
+          </div>
+          <div class="product-card" data-id="product2">
+            <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2026&q=80" alt="Levi's jeans" />
+            <div class="product-info">
+              <h3>Levi's jeans</h3>
+              <p>8,000+ listings</p>
+              <button class="add-to-cart-btn" data-id="product2" data-title="Levi's 501 Jeans" data-price="45.50" data-image="https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2026&q=80" data-seller="VintageDenim" data-condition="Good" data-size="32x34">Add to Cart</button>
+            </div>
+          </div>
+          <div class="product-card" data-id="product3">
+            <img src="https://images.unsplash.com/photo-1506629082955-511b1aa562c8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2068&q=80" alt="Lululemon leggings" />
+            <div class="product-info">
+              <h3>Lululemon leggings</h3>
+              <p>7,000+ listings</p>
+              <button class="add-to-cart-btn" data-id="product3" data-title="Lululemon Align Leggings" data-price="55.00" data-image="https://images.unsplash.com/photo-1506629082955-511b1aa562c8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2068&q=80" data-seller="FitFashion" data-condition="Like New" data-size="M">Add to Cart</button>
+            </div>
+          </div>
+          <div class="product-card" data-id="product4">
+            <img src="https://images.unsplash.com/photo-1608256246200-53e635b5b65f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" alt="Ugg boots" />
+            <div class="product-info">
+              <h3>Ugg boots</h3>
+              <p>6,000+ listings</p>
+              <button class="add-to-cart-btn" data-id="product4" data-title="UGG Classic Short Boots" data-price="89.99" data-image="https://images.unsplash.com/photo-1608256246200-53e635b5b65f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" data-seller="CozyFinds" data-condition="Good" data-size="8">Add to Cart</button>
+            </div>
+          </div>
+          <div class="product-card" data-id="product5">
+            <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2036&q=80" alt="Patagonia jackets" />
+            <div class="product-info">
+              <h3>Patagonia jackets</h3>
+              <p>4,000+ listings</p>
+              <button class="add-to-cart-btn" data-id="product5" data-title="Patagonia Down Jacket" data-price="120.00" data-image="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2036&q=80" data-seller="OutdoorGear" data-condition="Excellent" data-size="L">Add to Cart</button>
+            </div>
+          </div>
+          <div class="product-card" data-id="product6">
+            <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2067&q=80" alt="Nike Air Force 1" />
+            <div class="product-info">
+              <h3>Nike Air Force 1</h3>
+              <p>5,000+ listings</p>
+              <button class="add-to-cart-btn" data-id="product6" data-title="Nike Air Force 1" data-price="75.00" data-image="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2067&q=80" data-seller="SneakerHead" data-condition="Good" data-size="10">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
+
+    <!-- Auth Modal -->
+    <div class="modal-overlay" id="authModal">
+      <div class="modal-content">
+        <button class="close-modal">&times;</button>
+        
+        <div class="auth-tabs">
+          <button class="auth-tab active" data-tab="login">Log In</button>
+          <button class="auth-tab" data-tab="signup">Sign Up</button>
+        </div>
+        
+        <div class="auth-form-container">
+          <!-- Login Form -->
+          <form id="loginForm" class="auth-form active">
+            <div class="form-group">
+              <label for="loginEmail">Email</label>
+              <input type="email" id="loginEmail" required>
+            </div>
+            <div class="form-group">
+              <label for="loginPassword">Password</label>
+              <input type="password" id="loginPassword" required>
+            </div>
+            <div class="form-error" id="loginError"></div>
+            <button type="submit" class="auth-submit">Log In</button>
+          </form>
+          
+          <!-- Signup Form -->
+          <form id="signupForm" class="auth-form">
+            <div class="form-group">
+              <label for="signupUsername">Username</label>
+              <input type="text" id="signupUsername" required>
+            </div>
+            <div class="form-group">
+              <label for="signupEmail">Email</label>
+              <input type="email" id="signupEmail" required>
+            </div>
+            <div class="form-group">
+              <label for="signupPassword">Password</label>
+              <input type="password" id="signupPassword" required>
+            </div>
+            <div class="form-group">
+              <label for="signupConfirmPassword">Confirm Password</label>
+              <input type="password" id="signupConfirmPassword" required>
+            </div>
+            <div class="form-error" id="signupError"></div>
+            <button type="submit" class="auth-submit">Sign Up</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Success Notification -->
+    <div class="notification" id="successNotification">
+      <div class="notification-content">
+        <div class="notification-icon">✓</div>
+        <div class="notification-message"></div>
+      </div>
+    </div>
     
-    <!-- <footer>
-        <p>&copy; 2025 PreLoved Picks. All rights reserved.</p>
-    </footer> -->
-</body>
+
+    <script src="script.js"></script>
+  </body>
 </html>
