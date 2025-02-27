@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Profile - PreLoved Picks</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="profile.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <div class="logo-container">
+          <button class="menu-button">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 12H20M4 6H20M4 18H20" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <h1><a href="index.html">PreLoved Picks</a></h1>
+        </div>
+        <div class="search-container">
+          <div class="search-box">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="#666" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <input type="text" placeholder="Search" />
+          </div>
+        </div>
+        <div class="auth-container">
+          <button class="sell-button">Sell</button>
+          <div class="user-profile">
+            <button class="login-button">Log in</button>
+            <div class="user-welcome hidden">
+              <div class="user-avatar">
+                <span class="avatar-initials"></span>
+              </div>
+              <div class="user-dropdown">
+                <span class="username">User</span>
+                <div class="dropdown-content">
+                  <a href="profile.html" class="profile-link">My Profile</a>
+                  <button class="logout-button">Log out</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="profile-main">
+      <div class="profile-header">
+        <div class="profile-avatar">
+          <span class="profile-initials"></span>
+        </div>
+        <div class="profile-info">
+          <h2 class="profile-name">User Name</h2>
+          <p class="profile-email">user@example.com</p>
+          <p class="profile-member-since">Member since <span class="join-date">January 2023</span></p>
+        </div>
+      </div>
+
+      <div class="profile-tabs">
+        <button class="profile-tab active" data-tab="account">Account</button>
+        <button class="profile-tab" data-tab="listings">My Listings</button>
+        <button class="profile-tab" data-tab="orders">My Orders</button>
+        <button class="profile-tab" data-tab="favorites">Favorites</button>
+      </div>
+
+      <div class="profile-content">
+        <!-- Account Tab -->
+        <div class="profile-tab-content active" id="account-content">
+          <h3>Account Details</h3>
+          <form id="accountForm" class="profile-form">
+            <div class="form-group">
+              <label for="profileUsername">Username</label>
+              <input type="text" id="profileUsername">
+            </div>
+            <div class="form-group">
+              <label for="profileEmail">Email</label>
+              <input type="email" id="profileEmail">
+            </div>
+            <div class="form-group">
+              <label for="profileBio">Bio</label>
+              <textarea id="profileBio" rows="3" placeholder="Tell us about yourself..."></textarea>
+            </div>
+            <button type="submit" class="profile-save-button">Save Changes</button>
+          </form>
+        </div>
+
+        <!-- Listings Tab -->
+        <div class="profile-tab-content" id="listings-content">
+          <h3>My Listings</h3>
+          <div class="empty-state">
+            <div class="empty-icon">📦</div>
+            <h4>No listings yet</h4>
+            <p>Start selling your pre-loved items today!</p>
+            <button class="create-listing-button">Create Listing</button>
+          </div>
+        </div>
+
+        <!-- Orders Tab -->
+        <div class="profile-tab-content" id="orders-content">
+          <h3>My Orders</h3>
+          <div class="empty-state">
+            <div class="empty-icon">🛍️</div>
+            <h4>No orders yet</h4>
+            <p>Your purchase history will appear here.</p>
+            <button class="shop-now-button">Shop Now</button>
+          </div>
+        </div>
+
+        <!-- Favorites Tab -->
+        <div class="profile-tab-content" id="favorites-content">
+          <h3>Favorites</h3>
+          <div class="empty-state">
+            <div class="empty-icon">❤️</div>
+            <h4>No favorites yet</h4>
+            <p>Items you like will appear here.</p>
+            <button class="explore-button">Explore Items</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Auth Modal -->
+    <div class="modal-overlay" id="authModal">
+      <div class="modal-content">
+        <button class="close-modal">&times;</button>
+        
+        <div class="auth-tabs">
+          <button class="auth-tab active" data-tab="login">Log In</button>
+          <button class="auth-tab" data-tab="signup">Sign Up</button>
+        </div>
+        
+        <div class="auth-form-container">
+          <!-- Login Form -->
+          <form id="loginForm" class="auth-form active">
+            <div class="form-group">
+              <label for="loginEmail">Email</label>
+              <input type="email" id="loginEmail" required>
+            </div>
+            <div class="form-group">
+              <label for="loginPassword">Password</label>
+              <input type="password" id="loginPassword" required>
+            </div>
+            <div class="form-error" id="loginError"></div>
+            <button type="submit" class="auth-submit">Log In</button>
+          </form>
+          
+          <!-- Signup Form -->
+          <form id="signupForm" class="auth-form">
+            <div class="form-group">
+              <label for="signupUsername">Username</label>
+              <input type="text" id="signupUsername" required>
+            </div>
+            <div class="form-group">
+              <label for="signupEmail">Email</label>
+              <input type="email" id="signupEmail" required>
+            </div>
+            <div class="form-group">
+              <label for="signupPassword">Password</label>
+              <input type="password" id="signupPassword" required>
+            </div>
+            <div class="form-group">
+              <label for="signupConfirmPassword">Confirm Password</label>
+              <input type="password" id="signupConfirmPassword" required>
+            </div>
+            <div class="form-error" id="signupError"></div>
+            <button type="submit" class="auth-submit">Sign Up</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Success Notification -->
+    <div class="notification" id="successNotification">
+      <div class="notification-content">
+        <div class="notification-icon">✓</div>
+        <div class="notification-message"></div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="profile.js"></script>
+  </body>
+</html>
