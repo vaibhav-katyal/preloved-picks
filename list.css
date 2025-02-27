@@ -1,183 +1,178 @@
-*{
-    margin:0%;
-    padding:0%;
+/* General Styling */
+body {
+  background-color: #0d0d0d;
+  color: white;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
-body{
-    background-color:#181411;
-}
-h1{
-    color:white;
-    margin:10px;
-    
-}
-#main{
-    margin-left:20%;
-}
-h2{
-    color:white;
-    margin:10px;
 
+/* Form Container */
+.form-container {
+  background-color: #1a1a1a;
+  padding: 22px;
+  border-radius: 12px;
+  width: 80%;
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
 }
-p{
-    color:white;
-    margin:10px;
-}
-.button-container {
-    display: flex; /* Arrange buttons horizontally */
-    gap: 10px;      /* Add some space between them */
-    justify-content: center; /* Center the buttons */
-  }
-  
-  button {
-    background-color:#3a3028; /* Dark background */
-    color: white;             /* White text */
-    border: none;            /* Remove default border */
-    padding: 10px 20px;      /* Adjust padding as needed */
-    border-radius: 20px;      /* Rounded corners */
-    font-family: sans-serif; /* Use a clean font */
-    cursor: pointer;          /* Indicate interactivity */
-    transition: background-color 0.3s ease; /* Smooth hover effect */
-  }
-  
-  .upload-button {
-    background-color: #3a3028; /* Slightly different color for upload */
-  }
-  
-  button:hover {
-    background-color: #666; /* Lighter background on hover */
-  }
-  
-  /* Optional: Add specific hover effects for each button if needed */
-  .upload-button:hover {
-    background-color: #777;
-  }
-  input{
-    background-color:#3a3028; /* Dark background */
-    color: white;             /* White text */
-    border:none;   /* Remove default border */
-    padding: 10px 20px;  
-    border-radius:5px;
-    width:30%;
-    min-width:fit-content;
-    
-  }
-  select{
-    background-color:#3a3028; /* Dark background */
-    color: white;             /* White text */
-    border:inherit;/* Remove default border */
-    padding: 10px 20px;  
-    border-radius:5px;
-    width:34%;
-    min-width:fit-content;
 
-  }
-  .condition-container {
-    width: 300px; /* Adjust width as needed */
+h1 {
+  font-size: 30px;
+  margin-bottom: 15px;
+  font-weight: bold;
 }
-textarea{
-  color:white;
 
+/* Labels & Inputs */
+label {
+  display: block;
+  margin-top: 12px;
+  font-size: 14px;
+  font-weight: bold;
 }
-.condition-container h2 {
-    margin-bottom: 20px;
-    text-align: left;
+
+p {
+  font-size: 12px;
+  color: #b3b3b3;
+}
+
+/* Input Fields */
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  background-color: #262626;
+  border: 1px solid #333;
+  color: white;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: orange;
+  outline: none;
+  box-shadow: 0 0 5px orange;
+}
+
+/* Photo Buttons */
+.photo-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.upload-btn, .take-btn {
+  background-color: #333;
+  color: white;
+  border: 1px solid #444;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.upload-btn:hover, .take-btn:hover {
+  background-color: orange;
+  border-color: orange;
+}
+
+/* Condition Section */
+.condition-group {
+  flex-direction: row;
+  gap: 8px;
+  margin-top: 5px;
+}
+
+.condition-group label {
+  align-items: center;
+  gap: 3px;
+  font-size: 14px;
+  margin-right: 60%;
 }
 
 .condition-item {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    background-color:#181411; /* Slightly lighter background */
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  background-color:#181411; /* Slightly lighter background */
+  cursor: pointer;
     
 }
 
 .condition-item:hover {
-    background-color: #2a2a2a; /* Hover effect */
+  background-color: #2a2a2a; /* Hover effect */
 }
 
-
-
 .condition-item input[type="radio"]:checked {
-    border: 1px solid #e0e0e0; /* Larger inner circle when checked */
-    
-  
+  border: 1px solid #e0e0e0; /* Larger inner circle when checked */ 
 }
 
 .condition-item span {
-    flex-grow: 1;
+  flex-grow: 1;
 }
-
-  
-  
-  .condition-option{
-    border: 1px solid black;
-  }
-  
-  .description-section {
-    margin-bottom: 20px; /* Space between sections */
-  }
-  
-  .description-section label {
-    display: block; /* Make the label appear on its own line */
-    font-weight: bold; /* Make the label text bold */
-    margin-bottom: 5px; /* Space between label and textarea */
-  }
-  
-  .description-section textarea {
-    background-color: #3a3028;
-
-    width: 30%; /* Make the textarea take up the full width */
-    padding: 10px; /* Add some padding inside the textarea */
-    border: 1px solid #ccc; /* Add a light gray border */
-    border-radius: 5px; /* Round the corners */
-    resize:none; /* Allow vertical resizing */
-    min-height: 100px; /* Set a minimum height */
-    font-size: 14px; /* Set a font size */
-    box-sizing: border-box; /* Include padding and border in width */
-    min-width:250px;
-  }
-  
-  
-  label{
-    color:white;
-  }
  
-  #end{
-    display:flex;
-    justify-content:flex-end;
+.condition-option{
+  border: 1px solid black;
+  }
 
-  }
-  #end button{
-    margin:10px;
-    border-radius:20px;
-  
-    color:white;
-    
-  }
-  #cancel{
-    background-color:black;
-  }
-  #listitem{
-    background-color:rgb(218, 150, 23);
-  }
-  .price-section {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 30%;
+/* Price Section */
+.price-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 5px;
 }
 
-.price-section input,
-.price-section select {
-    background-color: #3a3028;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    width: 100%;
-    box-sizing: border-box;
+.price-group input {
+  flex: 1;
 }
-  
+
+.shipping-btn {
+  background-color: #333;
+  color: white;
+  border: 1px solid #444;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.shipping-btn:hover {
+  background-color: orange;
+  border-color: orange;
+}
+
+/* Form Actions (Buttons) */
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.cancel-btn {
+  background: none;
+  color: #b3b3b3;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.list-btn {
+  background-color: orange;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.list-btn:hover {
+  background-color: darkorange;
+  box-shadow: 0 0 10px rgba(255, 165, 0, 0.6);
+}
