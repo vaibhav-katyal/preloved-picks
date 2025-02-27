@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Cart - PreLoved Picks</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="cart.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <div class="logo-container">
+          <button class="menu-button">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 12H20M4 6H20M4 18H20" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <h1><a href="index.html">PreLoved Picks</a></h1>
+        </div>
+        <div class="search-container">
+          <div class="search-box">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="#666" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <input type="text" placeholder="Search" />
+          </div>
+        </div>
+        <div class="auth-container">
+          <a href="cart.html" class="cart-button">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 3H5L5.4 5M5.4 5H21L17 13H7M5.4 5L7 13M7 13L4.707 15.293C4.077 15.923 4.523 17 5.414 17H17M17 17C15.895 17 15 17.895 15 19C15 20.105 15.895 21 17 21C18.105 21 19 20.105 19 19C19 17.895 18.105 17 17 17ZM9 19C9 20.105 8.105 21 7 21C5.895 21 5 20.105 5 19C5 17.895 5.895 17 7 17C8.105 17 9 17.895 9 19Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="cart-count">0</span>
+          </a>
+          <button class="sell-button">Sell</button>
+          <div class="user-profile">
+            <button class="login-button">Log in</button>
+            <div class="user-welcome hidden">
+              <div class="user-avatar">
+                <span class="avatar-initials"></span>
+              </div>
+              <div class="user-dropdown">
+                <span class="username">User</span>
+                <div class="dropdown-content">
+                  <a href="profile.html" class="profile-link">My Profile</a>
+                  <button class="logout-button">Log out</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="cart-main">
+      <div class="cart-container">
+        <h1 class="cart-title">Your Shopping Cart</h1>
+        
+        <div class="cart-content">
+          <div id="cart-items" class="cart-items">
+            <!-- Cart items will be dynamically added here -->
+          </div>
+          
+          <div class="cart-summary">
+            <h2>Order Summary</h2>
+            <div class="summary-row">
+              <span>Subtotal</span>
+              <span id="cart-subtotal">$0.00</span>
+            </div>
+            <div class="summary-row">
+              <span>Shipping</span>
+              <span id="cart-shipping">$0.00</span>
+            </div>
+            <div class="summary-row">
+              <span>Tax</span>
+              <span id="cart-tax">$0.00</span>
+            </div>
+            <div class="summary-divider"></div>
+            <div class="summary-row total">
+              <span>Total</span>
+              <span id="cart-total">$0.00</span>
+            </div>
+            <button id="checkout-button" class="checkout-button">Proceed to Checkout</button>
+            <button id="continue-shopping" class="continue-shopping">Continue Shopping</button>
+          </div>
+        </div>
+        
+        <div id="empty-cart" class="empty-cart hidden">
+          <div class="empty-icon">🛒</div>
+          <h2>Your cart is empty</h2>
+          <p>Looks like you haven't added any items to your cart yet.</p>
+          <button id="start-shopping" class="start-shopping-button">Start Shopping</button>
+        </div>
+      </div>
+    </main>
+
+    <!-- Auth Modal -->
+    <div class="modal-overlay" id="authModal">
+      <div class="modal-content">
+        <button class="close-modal">&times;</button>
+        
+        <div class="auth-tabs">
+          <button class="auth-tab active" data-tab="login">Log In</button>
+          <button class="auth-tab" data-tab="signup">Sign Up</button>
+        </div>
+        
+        <div class="auth-form-container">
+          <!-- Login Form -->
+          <form id="loginForm" class="auth-form active">
+            <div class="form-group">
+              <label for="loginEmail">Email</label>
+              <input type="email" id="loginEmail" required>
+            </div>
+            <div class="form-group">
+              <label for="loginPassword">Password</label>
+              <input type="password" id="loginPassword" required>
+            </div>
+            <div class="form-error" id="loginError"></div>
+            <button type="submit" class="auth-submit">Log In</button>
+          </form>
+          
+          <!-- Signup Form -->
+          <form id="signupForm" class="auth-form">
+            <div class="form-group">
+              <label for="signupUsername">Username</label>
+              <input type="text" id="signupUsername" required>
+            </div>
+            <div class="form-group">
+              <label for="signupEmail">Email</label>
+              <input type="email" id="signupEmail" required>
+            </div>
+            <div class="form-group">
+              <label for="signupPassword">Password</label>
+              <input type="password" id="signupPassword" required>
+            </div>
+            <div class="form-group">
+              <label for="signupConfirmPassword">Confirm Password</label>
+              <input type="password" id="signupConfirmPassword" required>
+            </div>
+            <div class="form-error" id="signupError"></div>
+            <button type="submit" class="auth-submit">Sign Up</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Success Notification -->
+    <div class="notification" id="successNotification">
+      <div class="notification-content">
+        <div class="notification-icon">✓</div>
+        <div class="notification-message"></div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="cart.js"></script>
+  </body>
+</html>

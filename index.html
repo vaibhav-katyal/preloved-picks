@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PreLoved Picks</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="cart.css" />
   </head>
   <body>
     <header>
@@ -26,6 +27,12 @@
           </div>
         </div>
         <div class="auth-container">
+          <a href="cart.html" class="cart-button">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 3H5L5.4 5M5.4 5H21L17 13H7M5.4 5L7 13M7 13L4.707 15.293C4.077 15.923 4.523 17 5.414 17H17M17 17C15.895 17 15 17.895 15 19C15 20.105 15.895 21 17 21C18.105 21 19 20.105 19 19C19 17.895 18.105 17 17 17ZM9 19C9 20.105 8.105 21 7 21C5.895 21 5 20.105 5 19C5 17.895 5.895 17 7 17C8.105 17 9 17.895 9 19Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="cart-count">0</span>
+          </a>
           <button class="sell-button">Sell</button>
           <div class="user-profile">
             <button class="login-button">Log in</button>
@@ -58,22 +65,22 @@
       <section class="categories">
         <h2>Shop by category</h2>
         <div class="category-grid">
-          <div class="category-card">
+          <div class="category-card" data-category="clothing">
             <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Clothing" />
           </div>
-          <div class="category-card">
+          <div class="category-card" data-category="mens-fashion">
             <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80" alt="Men's Fashion" />
           </div>
-          <div class="category-card">
+          <div class="category-card" data-category="womens-shoes">
             <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80" alt="Women's Shoes" />
           </div>
-          <div class="category-card">
+          <div class="category-card" data-category="mens-shoes">
             <img src="https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Men's Shoes" />
           </div>
-          <div class="category-card">
+          <div class="category-card" data-category="bags">
             <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Bags" />
           </div>
-          <div class="category-card">
+          <div class="category-card" data-category="home-decor">
             <img src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80" alt="Home Decor" />
           </div>
         </div>
@@ -82,46 +89,52 @@
       <section class="trending">
         <h2>Trending now</h2>
         <div class="trending-grid">
-          <div class="product-card">
+          <div class="product-card" data-id="product1">
             <img src="https://images.unsplash.com/photo-1621996659490-3275b4d0d951?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Birkenstocks" />
             <div class="product-info">
               <h3>Birkenstocks</h3>
               <p>12,000+ listings</p>
+              <button class="add-to-cart-btn" data-id="product1" data-title="Birkenstocks" data-price="65.99" data-image="https://images.unsplash.com/photo-1621996659490-3275b4d0d951?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" data-seller="JaneStyle" data-condition="Excellent">Add to Cart</button>
             </div>
           </div>
-          <div class="product-card">
+          <div class="product-card" data-id="product2">
             <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2026&q=80" alt="Levi's jeans" />
             <div class="product-info">
               <h3>Levi's jeans</h3>
               <p>8,000+ listings</p>
+              <button class="add-to-cart-btn" data-id="product2" data-title="Levi's 501 Jeans" data-price="45.50" data-image="https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2026&q=80" data-seller="VintageDenim" data-condition="Good" data-size="32x34">Add to Cart</button>
             </div>
           </div>
-          <div class="product-card">
+          <div class="product-card" data-id="product3">
             <img src="https://images.unsplash.com/photo-1506629082955-511b1aa562c8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2068&q=80" alt="Lululemon leggings" />
             <div class="product-info">
               <h3>Lululemon leggings</h3>
               <p>7,000+ listings</p>
+              <button class="add-to-cart-btn" data-id="product3" data-title="Lululemon Align Leggings" data-price="55.00" data-image="https://images.unsplash.com/photo-1506629082955-511b1aa562c8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2068&q=80" data-seller="FitFashion" data-condition="Like New" data-size="M">Add to Cart</button>
             </div>
           </div>
-          <div class="product-card">
+          <div class="product-card" data-id="product4">
             <img src="https://images.unsplash.com/photo-1608256246200-53e635b5b65f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" alt="Ugg boots" />
             <div class="product-info">
               <h3>Ugg boots</h3>
               <p>6,000+ listings</p>
+              <button class="add-to-cart-btn" data-id="product4" data-title="UGG Classic Short Boots" data-price="89.99" data-image="https://images.unsplash.com/photo-1608256246200-53e635b5b65f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" data-seller="CozyFinds" data-condition="Good" data-size="8">Add to Cart</button>
             </div>
           </div>
-          <div class="product-card">
+          <div class="product-card" data-id="product5">
             <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2036&q=80" alt="Patagonia jackets" />
             <div class="product-info">
               <h3>Patagonia jackets</h3>
               <p>4,000+ listings</p>
+              <button class="add-to-cart-btn" data-id="product5" data-title="Patagonia Down Jacket" data-price="120.00" data-image="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2036&q=80" data-seller="OutdoorGear" data-condition="Excellent" data-size="L">Add to Cart</button>
             </div>
           </div>
-          <div class="product-card">
+          <div class="product-card" data-id="product6">
             <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2067&q=80" alt="Nike Air Force 1" />
             <div class="product-info">
               <h3>Nike Air Force 1</h3>
               <p>5,000+ listings</p>
+              <button class="add-to-cart-btn" data-id="product6" data-title="Nike Air Force 1" data-price="75.00" data-image="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2067&q=80" data-seller="SneakerHead" data-condition="Good" data-size="10">Add to Cart</button>
             </div>
           </div>
         </div>
