@@ -7,17 +7,13 @@
     <link rel="stylesheet" href="list.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="cart.css">
-    <script src="list.js"></script> 
 </head>
 <body>
-
     <header>
         <div class="header-container">
             <div class="logo-container">
                 <button class="menu-button">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M4 12H20M4 6H20M4 18H20" stroke="white" stroke-width="2" stroke-linecap="round" />
-                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="26px" viewBox="0 -960 960 960" width="26px" fill="#e8eaed"><path d="M280-80v-240h-64q-40 0-68-28t-28-68q0-29 16-53.5t42-36.5l262-116v-26q-36-13-58-43.5T360-760q0-50 35-85t85-35q50 0 85 35t35 85h-80q0-17-11.5-28.5T480-800q-17 0-28.5 11.5T440-760q0 17 11.5 28.5T480-720t28.5 11.5Q520-697 520-680v58l262 116q26 12 42 36.5t16 53.5q0 40-28 68t-68 28h-64v240H280Zm-64-320h64v-40h400v40h64q7 0 11.5-5t4.5-13q0-5-2.5-8.5T750-432L480-552 210-432q-5 2-7.5 5.5T200-418q0 8 4.5 13t11.5 5Zm144 240h240v-200H360v200Zm0-200h240-240Z"/></svg>
                 </button>
                 <a href="index.html" style="text-decoration: none;"><h1>PreLoved Picks</h1></a>
             </div>
@@ -83,56 +79,91 @@
     <div class="form-container">
         <h1>List an item</h1>
 
-        <label>Photos</label>
-        <p>Add up to minimum of 8 photos and 2 videos. The first photo will be the cover photo.</p>
-        <div class="photo-buttons">
-            <button class="upload-btn">Upload photos</button>
-            <button class="take-btn">Take photos</button>
-        </div>
+        <form id="listingForm">
+            <!-- Photos Section -->
+            <div>
+                <label>Photos</label>
+                <p>Add up to minimum of 8 photos and 2 videos. The first photo will be the cover photo.</p>
+                
+                <!-- Media Preview Area -->
+                <div class="media-preview-container">
+                    <div id="mediaPreview" class="media-preview"></div>
+                </div>
+                
+                <div class="photo-buttons">
+                    <label for="photoUpload" class="upload-btn">Upload photos</label>
+                    <input type="file" id="photoUpload" accept="image/*" multiple style="display: none;">
+                    
+                    <!-- <label for="videoUpload" class="upload-btn">Upload videos</label> -->
+                    <input type="file" id="videoUpload" accept="video/*" multiple style="display: none;">
+                    
+                    <button type="button" class="take-btn" id="takePhotoBtn">Take photos</button>
+                </div>
+            </div>
 
-        <label for="title">Title</label>
-        <input type="text" id="title" placeholder="e.g. Women's Black Jacket">
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" placeholder="e.g. Women's Black Jacket">
 
-        <label for="category">Category</label>
-        <select id="category">
-            <option>Select a category</option>
-        </select>
+            <label for="category">Category</label>
+            <select id="category" name="category">
+                <option value="">Select a category</option>
+                <option value="shoes">Shoes</option>
+                <option value="electronics">Pants</option>
+                <option value="home">Shirts or T-Shirts</option>
+                <option value="clothing">Jackets</option>
+                <option value="accessories">Jeans</option>
+                <option value="beauty">Eyeglasses</option>
+                <option value="sports">Sports Wears</option>
+                <option value="toys">Kids Wear</option>
+                <option value="books">Caps or Hats</option>
+                <option value="other">Other</option>
+            </select>
 
-        <label for="brand">Brand (optional)</label>
-        <input type="text" id="brand" placeholder="Enter a brand name">
+            <label for="brand">Brand (optional)</label>
+            <input type="text" id="brand" name="brand" placeholder="Enter a brand name">
 
-        <label for="size">Size (optional)</label>
-        <input type="text" id="size" placeholder="Enter a size">
+            <label for="size">Size (optional)</label>
+            <input type="text" id="size" name="size" placeholder="Enter a size">
 
-        <label>Condition</label>
-        <div class="condition-group">
-            <label><input type="radio" name="condition-item" checked>New with tags</label>
-            <label><input type="radio" name="condition-item">Like new</label>
-            <label><input type="radio" name="condition-item">Gently used</label>
-            <label><input type="radio" name="condition-item">Well worn</label>
-        </div>
+            <label>Condition</label>
+            <div class="condition-group">
+                <label><input type="radio" name="condition" value="New with tags" checked>New with tags</label>
+                <label><input type="radio" name="condition" value="Like new">Like new</label>
+                <label><input type="radio" name="condition" value="Gently used">Gently used</label>
+                <label><input type="radio" name="condition" value="Well worn">Well worn</label>
+            </div>
 
-        <label for="description">Description</label>
-        <textarea id="description" placeholder="e.g. Beautiful black jacket, new with tags, never worn."></textarea>
+            <!-- Product Details Section -->
+            <div class="product-details-section">
+                <label>Product Details (optional)</label>
+                <p>Add specific details about your product</p>
+                
+                <div id="productDetailsContainer">
+                    <div class="product-detail-row">
+                        <input type="text" class="detail-key" placeholder="Detail name (e.g. Color)">
+                        <input type="text" class="detail-value" placeholder="Detail value (e.g. Black)">
+                        <button type="button" class="remove-detail-btn">×</button>
+                    </div>
+                </div>
+                
+                <button type="button" id="addDetailBtn" class="add-detail-btn">+ Add another detail</button>
+            </div>
 
-        <label for="price">Price</label>
-        <div class="price-group">
-            <input type="text" id="price" placeholder="$0.00">
-            <button class="shipping-btn">Shipping included in price</button>
-        </div>
+            <label for="description">Description</label>
+            <textarea id="description" name="description" placeholder="e.g. Beautiful black jacket, new with tags, never worn."></textarea>
 
-        <div class="form-actions">
-            <button class="cancel-btn">Cancel</button>
-            <button class="list-btn">List item</button>
-        </div>
+            <label for="price">Price</label>
+            <div class="price-group">
+                <input type="text" id="price" name="price" placeholder="$0.00">
+                <button type="button" id="shippingBtn" class="shipping-btn" data-included="false">Shipping included in price</button>
+            </div>
+
+            <div class="form-actions">
+                <button type="button" class="cancel-btn" id="cancelBtn">Cancel</button>
+                <button type="submit" class="list-btn">List item</button>
+            </div>
+        </form>
     </div>
-
-      </form>
-      </section>
-    
-
-
-    </section>
 
     <script src="list.js"></script>
     <script src="auth.js"></script>

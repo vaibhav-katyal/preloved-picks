@@ -13,9 +13,7 @@
       <div class="header-container">
         <div class="logo-container">
           <button class="menu-button">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4 12H20M4 6H20M4 18H20" stroke="white" stroke-width="2" stroke-linecap="round" />
-            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" height="26px" viewBox="0 -960 960 960" width="26px" fill="#e8eaed"><path d="M280-80v-240h-64q-40 0-68-28t-28-68q0-29 16-53.5t42-36.5l262-116v-26q-36-13-58-43.5T360-760q0-50 35-85t85-35q50 0 85 35t35 85h-80q0-17-11.5-28.5T480-800q-17 0-28.5 11.5T440-760q0 17 11.5 28.5T480-720t28.5 11.5Q520-697 520-680v58l262 116q26 12 42 36.5t16 53.5q0 40-28 68t-68 28h-64v240H280Zm-64-320h64v-40h400v40h64q7 0 11.5-5t4.5-13q0-5-2.5-8.5T750-432L480-552 210-432q-5 2-7.5 5.5T200-418q0 8 4.5 13t11.5 5Zm144 240h240v-200H360v200Zm0-200h240-240Z"/></svg>
           </button>
           <a href="index.html" style="text-decoration: none;"><h1>PreLoved Picks</h1></a>
         </div>
@@ -81,9 +79,9 @@
 
       <div class="profile-tabs">
         <button class="profile-tab active" data-tab="account">Account</button>
-        <button class="profile-tab" data-tab="listings">My Listings</button>
-        <button class="profile-tab" data-tab="orders">My Orders</button>
-        <button class="profile-tab" data-tab="favorites">Favorites</button>
+        <a href="yourlisting.html" class="profile-tab">My Listings</a>
+        <a href="yoursorder.html" class="profile-tab">My Orders</a>
+        <a href="wishlist.html" class="profile-tab">Favorites</a>
       </div>
 
       <div class="profile-content">
@@ -105,39 +103,6 @@
             </div>
             <button type="submit" class="profile-save-button">Save Changes</button>
           </form>
-        </div>
-
-        <!-- Listings Tab -->
-        <div class="profile-tab-content" id="listings-content">
-          <h3>My Listings</h3>
-          <div class="empty-state">
-            <div class="empty-icon">📦</div>
-            <h4>No listings yet</h4>
-            <p>Start selling your pre-loved items today!</p>
-            <button class="create-listing-button">Create Listing</button>
-          </div>
-        </div>
-
-        <!-- Orders Tab -->
-        <div class="profile-tab-content" id="orders-content">
-          <h3>My Orders</h3>
-          <div class="empty-state">
-            <div class="empty-icon">🛍️</div>
-            <h4>No orders yet</h4>
-            <p>Your purchase history will appear here.</p>
-            <button class="shop-now-button">Shop Now</button>
-          </div>
-        </div>
-
-        <!-- Favorites Tab -->
-        <div class="profile-tab-content" id="favorites-content">
-          <h3>Favorites</h3>
-          <div class="empty-state">
-            <div class="empty-icon">❤️</div>
-            <h4>No favorites yet</h4>
-            <p>Items you like will appear here.</p>
-            <button class="explore-button">Explore Items</button>
-          </div>
         </div>
       </div>
     </main>

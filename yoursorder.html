@@ -8,6 +8,7 @@
 
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="cart.css">
+  <link rel="stylesheet" href="yoursorder.css">
 </head>
 
 <body>
@@ -15,11 +16,9 @@
     <div class="header-container">
       <div class="logo-container">
         <button class="menu-button">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4 12H20M4 6H20M4 18H20" stroke="white" stroke-width="2" stroke-linecap="round" />
-          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" height="26px" viewBox="0 -960 960 960" width="26px" fill="#e8eaed"><path d="M280-80v-240h-64q-40 0-68-28t-28-68q0-29 16-53.5t42-36.5l262-116v-26q-36-13-58-43.5T360-760q0-50 35-85t85-35q50 0 85 35t35 85h-80q0-17-11.5-28.5T480-800q-17 0-28.5 11.5T440-760q0 17 11.5 28.5T480-720t28.5 11.5Q520-697 520-680v58l262 116q26 12 42 36.5t16 53.5q0 40-28 68t-68 28h-64v240H280Zm-64-320h64v-40h400v40h64q7 0 11.5-5t4.5-13q0-5-2.5-8.5T750-432L480-552 210-432q-5 2-7.5 5.5T200-418q0 8 4.5 13t11.5 5Zm144 240h240v-200H360v200Zm0-200h240-240Z"/></svg>
         </button>
-        <h1>PreLoved Picks</h1>
+        <a href="index.html" style="text-decoration: none;"><h1>PreLoved Picks</h1></a>
       </div>
       <div class="search-container">
         <div class="search-box">
@@ -78,111 +77,25 @@
     </div>
   </header>
   <main>
-
     <section class="orders">
       <h2>Your Orders</h2>
       <div class="order-list">
-        <div class="order-card">
-          <img src="2.avif" alt="Product Image">
-          <div class="order-info">
-            <h3> Formal Shoes</h3>
-            <p>Order Date: Feb 25, 2025</p>
-            <p>Status: Shipped</p>
-            <button class="track-order">Track Order</button>
-            <button class="track-order">View-Details</button>
-            <button class="track-order">Cancel Order</button>
-
-          </div>
-        </div>
-        <div class="order-card">
-          <img src="1.avif" alt="Product Image">
-          <div class="order-info">
-            <h3>T-Shirt</h3>
-            <p>Order Date: Feb 20, 2025</p>
-            <p>Status: Delivered</p>
-            <button class="track-order">Track Order</button>
-            <button class="track-order">View-Details</button>
-            <button class="track-order">Cancel Order</button>
-          </div>
-        </div>
+        <!-- Orders will be loaded dynamically here -->
       </div>
     </section>
   </main>
+
+  <!-- Success Notification -->
+  <div class="notification" id="successNotification">
+    <div class="notification-content">
+      <div class="notification-icon">✓</div>
+      <div class="notification-message"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
   <script src="yoursorder.js"></script>
-  <script src="auth.js"></script>
 </body>
 
 </html>
 
-<style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
-  }
-
-  body {
-    background-color: #1a1a1a;
-    color: #fff;
-    line-height: 1.6;
-    padding: 20px;
-  }
-
-  header {
-    background-color: #1a1a1a;
-    padding: 15px 0;
-    text-align: center;
-  }
-
-  h1 a {
-    color: #ff6b00;
-    text-decoration: none;
-  }
-
-  .orders {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background: #222;
-    border-radius: 12px;
-  }
-
-  .order-list {
-    margin-top: 20px;
-  }
-
-  .order-card {
-    display: flex;
-    align-items: center;
-    background: #333;
-    padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 15px;
-  }
-
-  .order-card img {
-    width: 100px;
-    height: 100px;
-    border-radius: 8px;
-    margin-right: 15px;
-  }
-
-  .order-info h3 {
-    margin-bottom: 5px;
-  }
-
-  button {
-    background-color: #ff6b00;
-    border: none;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
-  }
-
-  button:hover {
-    background-color: #e05e00;
-  }
-</style>

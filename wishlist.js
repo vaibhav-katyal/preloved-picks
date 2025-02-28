@@ -1,157 +1,138 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const wishlistGrid = document.querySelector(".wishlist-grid");
-    const searchInput = document.querySelector(".search-box input");
-    
+document.addEventListener("DOMContentLoaded", () => {
+    const wishlistGrid = document.querySelector(".wishlist-grid")
+    const searchInput = document.querySelector(".search-box input")
+  
+    // Load wishlist items from localStorage
+    loadWishlistItems()
+  
+    // Function to load wishlist items from localStorage
+    function loadWishlistItems() {
+      const wishlistItems = JSON.parse(localStorage.getItem("wishlist")) || []
+  
+      // Clear existing items
+      wishlistGrid.innerHTML = ""
+  
+      if (wishlistItems.length === 0) {
+        wishlistGrid.innerHTML = "<p>Your wishlist is empty. Add items from the main page.</p>"
+        return
+      }
+  
+      // Add each item to the wishlist grid
+      wishlistItems.forEach((item) => {
+        const wishlistItem = document.createElement("div")
+        wishlistItem.classList.add("wishlist-item")
+        wishlistItem.innerHTML = `
+                  <img src="${item.image}" alt="${item.name}">
+                  <div class="wishlist-info">
+                      <h3>${item.name}</h3>
+                      <p>${item.price}</p>
+                      <button class="add-to-cart-button" data-id="${item.id}" data-name="${item.name}" data-price="${item.price}" data-image="${item.image}">Add to Cart</button>
+                      <br><br>
+                      <button class="remove-button" data-id="${item.id}">Remove</button>
+                  </div>
+              `
+        wishlistGrid.appendChild(wishlistItem)
+      })
+  
+      // Add event listeners to buttons
+      addButtonEventListeners()
+    }
+  
+    // Function to add event listeners to buttons
+    function addButtonEventListeners() {
+      // Add to cart button event listeners
+      document.querySelectorAll(".add-to-cart-button").forEach((button) => {
+        button.addEventListener("click", function () {
+          const item = {
+            id: this.dataset.id,
+            title: this.dataset.name,
+            price: Number.parseFloat(this.dataset.price.replace("$", "")),
+            image: this.dataset.image,
+            quantity: 1,
+          }
+  
+          // Add to cart
+          addToCart(item)
+          showNotification("Item added to cart!")
+        })
+      })
+  
+      // Remove button event listeners
+      document.querySelectorAll(".remove-button").forEach((button) => {
+        button.addEventListener("click", function () {
+          const itemId = this.dataset.id
+          removeFromWishlist(itemId)
+        })
+      })
+    }
+  
     // Function to remove an item from the wishlist
-    function removeItem(event) {
-        const item = event.target.closest(".wishlist-item");
-        if (item) {
-            item.remove();
-        }
+    function removeFromWishlist(itemId) {
+      let wishlistItems = JSON.parse(localStorage.getItem("wishlist")) || []
+  
+      // Filter out the item to remove
+      wishlistItems = wishlistItems.filter((item) => item.id !== itemId)
+  
+      // Save updated wishlist to localStorage
+      localStorage.setItem("wishlist", JSON.stringify(wishlistItems))
+  
+      // Reload wishlist items
+      loadWishlistItems()
+  
+      showNotification("Item removed from wishlist")
     }
-
-    document.addEventListener("DOMContentLoaded", () => {
-        const wishlist = document.querySelector(".wishlist-grid");
-        let wishlistItems = JSON.parse(localStorage.getItem("wishlist")) || [];
-    
-        function updateLocalStorage() {
-            const currentItems = Array.from(document.querySelectorAll(".wishlist-item")).map(item => ({
-                name: item.querySelector("h3").textContent,
-                price: item.querySelector("p").textContent,
-                image: item.querySelector("img").src
-            }));
-            localStorage.setItem("wishlist", JSON.stringify(currentItems));
-        }
-    
-        function removeFromWishlist(itemElement) {
-            const itemName = itemElement.querySelector("h3").textContent;
-        
-            // Filter out the removed item from localStorage data
-            wishlistItems = wishlistItems.filter(item => item.name !== itemName);
-        
-            // Update localStorage
-            localStorage.setItem("wishlist", JSON.stringify(wishlistItems));
-        
-            // Remove the item from the DOM
-            itemElement.remove();
-        }
-
-        document.addEventListener("DOMContentLoaded", () => {
-            const wishlist = document.querySelector(".wishlist-grid");
-            let wishlistItems = JSON.parse(localStorage.getItem("wishlist")) || [];
-            let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
-        
-            function updateLocalStorage() {
-                const currentItems = Array.from(document.querySelectorAll(".wishlist-item")).map(item => ({
-                    name: item.querySelector("h3").textContent,
-                    price: item.querySelector("p").textContent,
-                    image: item.querySelector("img").src
-                }));
-                localStorage.setItem("wishlist", JSON.stringify(currentItems));
-            }
-        
-            function removeFromWishlist(itemElement) {
-                itemElement.remove();
-                updateLocalStorage();
-            }
-        
-            function addToCart(item) {
-                cartItems.push(item);
-                localStorage.setItem("cart", JSON.stringify(cartItems));
-            }
-        
-            wishlist.addEventListener("click", (event) => {
-                const itemElement = event.target.closest(".wishlist-item");
-        
-                if (event.target.classList.contains("remove-button")) {
-                    removeFromWishlist(itemElement);
-                } else if (event.target.classList.contains("add-to-cart-button")) {
-                    const item = {
-                        name: itemElement.querySelector("h3").textContent,
-                        price: itemElement.querySelector("p").textContent,
-                        image: itemElement.querySelector("img").src
-                    };
-                    addToCart(item);
-                    alert("Item added to cart!");
-                }
-            });
-        
-            function loadWishlist() {
-                wishlist.innerHTML = "";
-                wishlistItems.forEach(item => {
-                    const itemElement = document.createElement("div");
-                    itemElement.classList.add("wishlist-item");
-                    itemElement.innerHTML = `
-                        <img src="${item.image}" alt="${item.name}">
-                        <h3>${item.name}</h3>
-                        <p>${item.price}</p>
-                        <button class="add-to-cart-button">Add to Cart</button>
-                        <button class="remove-button">Remove</button>
-                    `;
-                    wishlist.appendChild(itemElement);
-                });
-            }
-        
-            loadWishlist();
-        });
-        
-    
-        function loadWishlist() {
-            wishlist.innerHTML = "";
-            wishlistItems.forEach(item => {
-                const itemElement = document.createElement("div");
-                itemElement.classList.add("wishlist-item");
-                itemElement.innerHTML = `
-                    <img src="${item.image}" alt="${item.name}">
-                    <h3>${item.name}</h3>
-                    <p>${item.price}</p>
-                    <button class="add-to-cart-button">Add to Cart</button>
-                    <button class="remove-button">Remove</button>
-                `;
-                wishlist.appendChild(itemElement);
-            });
-        }
-    
-        loadWishlist();
-    });
-    
-    
-    
-
-    // Attach event listeners to existing remove buttons
-    document.querySelectorAll(".remove-button").forEach(button => {
-        button.addEventListener("click", removeItem);
-    });
-
-    // Function to add a new item to the wishlist (for demo purposes)
-    function addItem(name, price, imageUrl) {
-        const item = document.createElement("div");
-        item.classList.add("wishlist-item");
-        item.innerHTML = `
-            <img src="${imageUrl}" alt="${name}">
-            <div class="wishlist-info">
-                <h3>${name}</h3>
-                <p>$${price}</p>
-                <button class="remove-button">Remove</button>
-            </div>
-        `;
-        wishlistGrid.appendChild(item);
-        item.querySelector(".remove-button").addEventListener("click", removeItem);
+  
+    // Function to add an item to the cart
+    function addToCart(item) {
+      const cartItems = JSON.parse(localStorage.getItem("cart")) || []
+  
+      // Check if item already exists in cart
+      const existingItemIndex = cartItems.findIndex((cartItem) => cartItem.id === item.id)
+  
+      if (existingItemIndex !== -1) {
+        // Increase quantity if item already exists
+        cartItems[existingItemIndex].quantity += 1
+      } else {
+        // Add new item to cart
+        cartItems.push(item)
+      }
+  
+      // Save updated cart to localStorage
+      localStorage.setItem("cart", JSON.stringify(cartItems))
+  
+      // Update cart count
+      updateCartCount(cartItems.length)
     }
-
-    // Example: Add a new item dynamically
-    // addItem("New Item", "120", "https://via.placeholder.com/180");
-
+  
+    // Function to update cart count
+    function updateCartCount(count) {
+      const cartCount = document.querySelector(".cart-count")
+      if (cartCount) {
+        cartCount.textContent = count
+      }
+    }
+  
+    // Function to show notification
+    function showNotification(message) {
+      alert(message)
+    }
+  
     // Search functionality
-    searchInput.addEventListener("input", function () {
-        const query = searchInput.value.toLowerCase();
-        document.querySelectorAll(".wishlist-item").forEach(item => {
-            const itemName = item.querySelector("h3").textContent.toLowerCase();
-            if (itemName.includes(query)) {
-                item.style.display = "block";
-            } else {
-                item.style.display = "none";
-            }
-        });
-    });
-});
+    if (searchInput) {
+      searchInput.addEventListener("input", function () {
+        const query = this.value.toLowerCase()
+  
+        document.querySelectorAll(".wishlist-item").forEach((item) => {
+          const itemName = item.querySelector("h3").textContent.toLowerCase()
+  
+          if (itemName.includes(query)) {
+            item.style.display = "block"
+          } else {
+            item.style.display = "none"
+          }
+        })
+      })
+    }
+  })
+  
+  

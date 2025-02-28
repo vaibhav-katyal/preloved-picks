@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="search.css">
+    <title>PreLoved Picks - Search Results</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="cart.css">
-    <title>PreLoved Picks - Search</title>
+    <link rel="stylesheet" href="search.css">
 </head>
 <body>
     <header>
@@ -17,20 +17,26 @@
                 <path d="M4 12H20M4 6H20M4 18H20" stroke="white" stroke-width="2" stroke-linecap="round" />
               </svg>
             </button>
-            <h1>PreLoved Picks</h1>
+            <a href="index.html" style="text-decoration: none;"><h1>PreLoved Picks</h1></a>
           </div>
           <div class="search-container">
-            <div class="search-box">
+            <form class="search-box" id="searchForm">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
                   stroke="#666" stroke-width="2" stroke-linecap="round" />
               </svg>
-              <input type="text" placeholder="Search" />
-            </div>
+              <input type="text" placeholder="Search" id="searchInput" />
+              <button type="submit" class="search-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+              </button>
+            </form>
           </div>
           <div class="auth-container">
-            <a href="cart.html" class="cart-button"  title="Your Cart">
+            <a href="cart.html" class="cart-button" title="Your Cart">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M3 3H5L5.4 5M5.4 5H21L17 13H7M5.4 5L7 13M7 13L4.707 15.293C4.077 15.923 4.523 17 5.414 17H17M17 17C15.895 17 15 17.895 15 19C15 20.105 15.895 21 17 21C18.105 21 19 20.105 19 19C19 17.895 18.105 17 17 17ZM9 19C9 20.105 8.105 21 7 21C5.895 21 5 20.105 5 19C5 17.895 5.895 17 7 17C8.105 17 9 17.895 9 19Z"
@@ -47,7 +53,7 @@
             <a href="yourlisting.html" class="listings-button">
               <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M856-390 570-104q-12 12-27 18t-30 6q-15 0-30-6t-27-18L103-457q-11-11-17-25.5T80-513v-287q0-33 23.5-56.5T160-880h287q16 0 31 6.5t26 17.5l352 353q12 12 17.5 27t5.5 30q0 15-5.5 29.5T856-390ZM513-160l286-286-353-354H160v286l353 354ZM260-640q25 0 42.5-17.5T320-700q0-25-17.5-42.5T260-760q-25 0-42.5 17.5T200-700q0 25 17.5 42.5T260-640Zm220 160Z"/></svg>
             </a>
-            <button class="sell-button">Sell</button>
+            <a href="list.html"><button class="sell-button">Sell</button></a>
             <div class="user-profile">
               <button class="login-button">Log in</button>
               <div class="user-welcome hidden">
@@ -67,90 +73,82 @@
         </div>
       </header>
 
-    <main>
+      <main>
         <section class="search-results">
-            <h2>Search Results</h2>
-            <div class="search-item">
-                <div class="item-photo">
-                    <img src="https://img.freepik.com/premium-vector/adidas-logo-tshirt-mockup-gray-colors-mockup-realistic-shirt-with-short-sleeves-blank-tshirt-template-with-empty-space-design-adidas-brand_661108-7766.jpg" alt="Item Photo">
-                </div>
-                <div class="item-details">
-                    <h3>adidas branded shirt</h3>
-                    <p class="description"> It's stylish and perfect for any occasion.</p>
-                    <p class="price">$20.0</p>
-                    <div class="rating">Rating: ★★★★☆</div>
-                    <div class="item-actions">
-                        <button class="buy-now">Buy Now</button>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
+            <h2 id="searchTitle">Search Results</h2>
+            <div id="searchResultsContainer">
+                <!-- Search results will be dynamically added here -->
+                <div class="loading-spinner">
+                    <div class="spinner"></div>
+                    <p>Searching for items...</p>
                 </div>
             </div>
-            <div class="search-item">
-                <div class="item-photo">
-                    <img src="https://img.freepik.com/free-psd/white-t-shirt-front-mockup_23-292935585.jpg?ga=GA1.1.286711545.1738848046&semt=ais_hybrid" alt="Item Photo">
-                </div>
-                <div class="item-details">
-                    <h3>unused  branded shirt</h3>
-                    <p class="description"> It's perfect for casual wearing </p>
-                    <p class="price">$20.0</p>
-                    <div class="rating">Rating: ★★★★☆</div>
-                    <div class="item-actions">
-                        <button class="buy-now">Buy Now</button>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-            <div class="search-item">
-                <div class="item-photo">
-                    <img src="https://img.freepik.com/free-photo/graphic-tshirt-trendy-design-mockup-presented-wooden-hanger-with-sapce-your-test_460848-14315.jpg?ga=GA1.1.286711545.1738848046" alt="Item Photo">
-                </div>
-                <div class="item-details">
-                    <h3>grapic t-shirt </h3>
-                    <p class="description"> It, has a trendy look perfect for casual wearing</p>
-                    <p class="price">$10.0</p>
-                    <div class="rating">Rating: ★★★☆</div>
-                    <div class="item-actions">
-                        <button class="buy-now">Buy Now</button>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-            <div class="search-item">
-                <div class="item-photo">
-                    <img src="https://img.freepik.com/free-vector/white-shirt-with-blue-sleeves-white-background_1308-88726.jpg?ga=GA1.1.286711545.1738848046&semt=ais_hybrid" alt="Item Photo">
-                </div>
-                <div class="item-details">
-                    <h3> simple white shirt</h3>
-                    <p class="description"> It's a simple white shirt with a simple design </p>
-                    <p class="price">$12.0</p>
-                    <div class="rating">Rating: ★★★</div>
-                    <div class="item-actions">
-                        <button class="buy-now">Buy Now</button>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-            <div class="search-item">
-                <div class="item-photo">
-                    <img src="https://img.freepik.com/free-photo/shirt-clothes_1203-2961.jpg?ga=GA1.1.286711545.1738848046&semt=ais_hybrid" alt="Item Photo">
-                </div>
-                <div class="item-details">
-                    <h3> denim shirt</h3>
-                    <p class="description"> Classic denim, modern comfort.  This light blue shirt is a must-have for any man's closet.  Soft, stylish, and versatile.</p>
-                    <p class="price">$40.0</p>
-                    <div class="rating">Rating: ★★★★☆</div>
-                    <div class="item-actions">
-                        <button class="buy-now">Buy Now</button>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-        
         </section>
-    </main>
+      </main>
 
+      <!-- Auth Modal -->
+      <div class="modal-overlay" id="authModal">
+        <div class="modal-content">
+          <button class="close-modal">&times;</button>
+    
+          <div class="auth-tabs">
+            <button class="auth-tab active" data-tab="login">Log In</button>
+            <button class="auth-tab" data-tab="signup">Sign Up</button>
+          </div>
+    
+          <div class="auth-form-container">
+            <!-- Login Form -->
+            <form id="loginForm" class="auth-form active">
+              <div class="form-group">
+                <label for="loginEmail">Email</label>
+                <input type="email" id="loginEmail" required>
+              </div>
+              <div class="form-group">
+                <label for="loginPassword">Password</label>
+                <input type="password" id="loginPassword" required>
+              </div>
+              <div class="form-error" id="loginError"></div>
+              <button type="submit" class="auth-submit">Log In</button>
+            </form>
+    
+            <!-- Signup Form -->
+            <form id="signupForm" class="auth-form">
+              <div class="form-group">
+                <label for="signupUsername">Username</label>
+                <input type="text" id="signupUsername" required>
+              </div>
+              <div class="form-group">
+                <label for="signupEmail">Email</label>
+                <input type="email" id="signupEmail" required>
+              </div>
+              <div class="form-group">
+                <label for="signupPassword">Password</label>
+                <input type="password" id="signupPassword" required>
+              </div>
+              <div class="form-group">
+                <label for="signupConfirmPassword">Confirm Password</label>
+                <input type="password" id="signupConfirmPassword" required>
+              </div>
+              <div class="form-error" id="signupError"></div>
+              <button type="submit" class="auth-submit">Sign Up</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Success Notification -->
+      <div class="notification" id="successNotification">
+        <div class="notification-content">
+          <div class="notification-icon">✓</div>
+          <div class="notification-message"></div>
+        </div>
+      </div>
+
+      <!-- <footer>
+        <p>&copy; 2025 PreLoved Picks. All rights reserved.</p>
+      </footer> -->
+
+    <script src="script.js"></script>
     <script src="search.js"></script>
-    <script src="auth.js"></script>
 </body>
 </html>

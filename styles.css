@@ -39,7 +39,7 @@ header {
   background: none;
   border: none;
   cursor: pointer;
-  margin-right: 10px;
+  margin-right: 5px;
   padding: 5px;
 }
 
@@ -608,4 +608,86 @@ main {
 
 .listing{
   margin-left:60px;
+}
+
+/* Add this to your styles.css file */
+.wishlist-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 0.2s ease;
+}
+
+.wishlist-icon:hover {
+  transform: scale(1.1);
+}
+
+.wishlist-icon svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: white;
+  stroke-width: 2;
+  transition: fill 0.2s ease;
+}
+
+.wishlist-icon.active svg {
+  fill: #ff6b00;
+  stroke: #ff6b00;
+}
+
+.product-card {
+  position: relative;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background-color: #333;
+  border-radius: 20px;
+  padding: 8px 15px;
+}
+
+.search-box svg {
+  margin-right: 10px;
+}
+
+.search-box input {
+  background: none;
+  border: none;
+  color: #fff;
+  width: 100%;
+  outline: none;
+  font-size: 0.9rem;
+}
+
+.search-box input::placeholder {
+  color: #888;
+}
+
+.search-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 10px;
+}
+
+.search-button svg {
+  width: 20px;
+  height: 20px;
+  stroke: #888;
+}
+
+.search-button:hover svg {
+  stroke: #fff;
 }

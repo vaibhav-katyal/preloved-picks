@@ -263,3 +263,85 @@
     padding: 20px 15px;
   }
 }
+
+.profile-tabs {
+  display: flex;
+  border-bottom: 1px solid #333;
+  margin-bottom: 25px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.profile-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.profile-tab {
+  background: none;
+  border: none;
+  color: #888;
+  padding: 12px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.profile-tab.active {
+  color: #ff6b00;
+  border-bottom: 2px solid #ff6b00;
+}
+
+.profile-tab:hover:not(.active) {
+  color: #ccc;
+}
+
+/* Add a subtle animation for tab transitions */
+@keyframes tabHover {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.profile-tab:hover {
+  animation: tabHover 0.3s ease-in-out;
+}
+
+/* Style for the active tab (Account) */
+.profile-tab[data-tab="account"].active {
+  background-color: rgba(255, 107, 0, 0.1);
+  border-radius: 8px 8px 0 0;
+}
+
+/* Add some spacing between tabs */
+.profile-tab:not(:last-child) {
+  margin-right: 10px;
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+  .profile-tabs {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .profile-tab {
+    flex: 1 1 40%;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-tab {
+    flex: 1 1 100%;
+  }
+}
+
