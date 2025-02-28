@@ -57,6 +57,11 @@ document.addEventListener("DOMContentLoaded", () => {
     cartItemsContainer.innerHTML = ""
   
     cart.forEach((item) => {
+      // Check if item is valid
+      if (!item || !item.id || !item.title || !item.price) {
+        return; // Skip invalid items
+      }
+
       const cartItemElement = document.createElement("div")
       cartItemElement.className = "cart-item"
       cartItemElement.dataset.id = item.id
@@ -303,5 +308,4 @@ document.addEventListener("DOMContentLoaded", () => {
       .toUpperCase()
       .substring(0, 2)
   }
-  
-  
+
